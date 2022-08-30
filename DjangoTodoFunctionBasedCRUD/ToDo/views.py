@@ -13,8 +13,8 @@ def home(request):
      return render(request,'ToDoList.html',context)
 
 #detail Todo
-def DetailToDo(request,str):
-     todolist = ToDo.objects.get(title=str)
+def DetailToDo(request,slug):
+     todolist = ToDo.objects.get(slug=slug)
      # todolist = ToDo.objects.all().filter(title = str)
      context = {
           'todolist' : todolist
@@ -37,8 +37,8 @@ def ToDoCreate(request):
 
 #Update
 
-def ToDoUpdate(request,str):
-     test = ToDo.objects.get(title=str)
+def ToDoUpdate(request,slug):
+     test = ToDo.objects.get(slug=slug)
      form = ToDoForm(request.POST or None,instance=test)
      
      if form.is_valid():
@@ -52,8 +52,8 @@ def ToDoUpdate(request,str):
      return render(request,'TodoForm.html',context)
      
      
-def ToDoDelete(request,str):
-     object = ToDo.objects.get(title = str)
+def ToDoDelete(request,slug):
+     object = ToDo.objects.get(slug = slug)
      if request.method =="POST":
           object.delete()
           return redirect("/")
