@@ -11,7 +11,7 @@
           <div class="card-body">
                Description: <h5 class="card-title"> {{todolist.descriptions}}</h5>
                Created At: <p class="card-text"> {{todolist.date_created}}</p>
-              <a href="{% url 'todo-update' todolist.title %}"> <button type="button" class="btn btn-primary">Update</button></a>
+              <a href="{% url 'todo-update' todolist.slug %}"> <button type="button" class="btn btn-primary">Update</button></a>
               <a href="{% url 'home'  %}"> <button type="button" class="btn btn-secondary">Back</button></a>
                
           </div>
